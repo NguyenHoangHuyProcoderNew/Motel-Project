@@ -1,0 +1,56 @@
+﻿Viết chương trình quản lý nhà nghỉ bằng python dựa trên các yêu cầu sau:
+
+Giao diện chương trình phải đẹp và cân đối
+Định dạng tệp databse là (.sql)
+ 
+Viết menu bao gồm các chức năng sau:
+- Thêm phòng
+- Cập nhật thông tin phòng
+- Tính giá phòng
+- Xem tất cả các phòng
+- Xem phòng trống
+- Thoát khỏi chương trình
+Sau đây là cách giải các hàm trên
+1. Thêm phòng:
+- Yêu cầu user nhập các thông tin sau: số phòng (chỉ nhập được các phòng: 02,03,04,07,08,09, nếu user nhập khác báo lỗi và yêu cầu nhập lại), check- về thời gian (định dạng nhập là: HH:mm, vd: 01:00 ), loại phòng (chỉ nhập ML hoặc Q, nếu nhập sai báo lỗi và yêu cầu nhập lại).
+Các thông tin trên cần được lưu trữ trong cơ sở dữ liệu (viết lệnh tạo đường dẫn đến cơ sở dữ liệu).
+
+2. Cập nhật thông tin phòng:
+- Yêu cầu user nhập vào: số phòng
+Sau đó dựa trên dữ liệu đã nhập ở chức năng thêm phòng, cho phép người dùng cập nhật tất cả thông tin của phòng đó
+
+3. Tính giá phòng: yêu cầu người dùng nhập số phòng (thông tin dựa trên dữ liệu), check out.
+Sau khi người dùng nhập, tính toán số tiền bằng thuật toán sau:
+Đầu tiên check out - thời gian check in sau đó quy đổi ra phút rồi tính như sau:
+Nếu loại phòng là Q và số phút là từ 1 đến 60 thì màn hình sẽ báo "Tiền phòng của bạn là 70 điểm"
+
+Nếu loại phòng là Q và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 80 độ"
+
+Nếu loại phòng là Q và số phút từ 120 đến 180 thì màn hình sẽ báo "Tỷ lệ phòng của bạn là 90 độ"
+
+Nếu loại phòng là Q và số phút từ 180 đến 240, màn hình sẽ báo "Giá phòng của bạn là 110 độ"
+
+Nếu loại phòng là Q và số phút từ 240 đến 300, màn hình sẽ báo "Giá phòng của bạn là 120 độ"
+
+Nếu loại phòng là Q và số phút là từ 300 đến 360 thì màn hình sẽ báo "Giá phòng của bạn là 140 độ"
+
+Nếu loại phòng là ML và số phút là từ 1 đến 60, màn hình sẽ hiển thị “Tỷ lệ phòng của bạn là 90 độ“
+
+Nếu loại phòng là ML và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 100 độ"
+
+Nếu loại phòng là ML và số phút từ 120 đến 180, màn hình sẽ hiện “Giá phòng của bạn là 110 độ”
+
+Nếu loại phòng là ML và số phút từ 180 đến 240, màn hình sẽ báo “Giá phòng của bạn là 120 độ”
+
+Nếu loại phòng là ML và số phút từ 240 đến 300, màn hình sẽ báo “Giá phòng của bạn là 140 độ”
+
+Nếu loại phòng là ML và số phút là từ 300 đến 360, màn hình sẽ hiển thị “Giá phòng của bạn là 160 độ”
+
+Sau khi thanh toán thành công, xoá phòng đó khỏi databse
+
+4. Xem tất cả các phòng đã thêm:
+Để người dùng xem được toàn bộ thông tin của các phòng đã được thêm vào dựa trên cơ sở dữ liệu, hãy trình bày dưới dạng bảng được tạo bằng dấu =
+
+5. Xem phòng trống:
+Dựa vào cơ sở dữ liệu, nếu phòng không tồn tại trong cơ sở dữ liệu thì phòng sẽ hiển thị màn hình như ví dụ sau:
+“Các phòng còn trống là:…”
