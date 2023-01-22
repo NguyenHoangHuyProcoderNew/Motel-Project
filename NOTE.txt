@@ -22,29 +22,29 @@ Sau đó dựa trên dữ liệu đã nhập ở chức năng thêm phòng, cho 
 3. Tính giá phòng: yêu cầu người dùng nhập số phòng (thông tin dựa trên dữ liệu), check out.
 Sau khi người dùng nhập, tính toán số tiền bằng thuật toán sau:
 Đầu tiên check out - thời gian check in sau đó quy đổi ra phút rồi tính như sau:
-Nếu loại phòng là Q và số phút là từ 1 đến 60 thì màn hình sẽ báo "Tiền phòng của bạn là 70 điểm"
+Nếu loại phòng là Q và số phút là từ 1 đến 60 thì màn hình sẽ báo "Tiền phòng của bạn là 70 nghìn"
 
-Nếu loại phòng là Q và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 80 độ"
+Nếu loại phòng là Q và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 80 nghìn"
 
-Nếu loại phòng là Q và số phút từ 120 đến 180 thì màn hình sẽ báo "Tỷ lệ phòng của bạn là 90 độ"
+Nếu loại phòng là Q và số phút từ 120 đến 180 thì màn hình sẽ báo "Tỷ lệ phòng của bạn là 90 nghìn"
 
-Nếu loại phòng là Q và số phút từ 180 đến 240, màn hình sẽ báo "Giá phòng của bạn là 110 độ"
+Nếu loại phòng là Q và số phút từ 180 đến 240, màn hình sẽ báo "Giá phòng của bạn là 110 nghìn"
 
-Nếu loại phòng là Q và số phút từ 240 đến 300, màn hình sẽ báo "Giá phòng của bạn là 120 độ"
+Nếu loại phòng là Q và số phút từ 240 đến 300, màn hình sẽ báo "Giá phòng của bạn là 120 nghìn"
 
-Nếu loại phòng là Q và số phút là từ 300 đến 360 thì màn hình sẽ báo "Giá phòng của bạn là 140 độ"
+Nếu loại phòng là Q và số phút là từ 300 đến 360 thì màn hình sẽ báo "Giá phòng của bạn là 140 nghìn"
 
-Nếu loại phòng là ML và số phút là từ 1 đến 60, màn hình sẽ hiển thị “Tỷ lệ phòng của bạn là 90 độ“
+Nếu loại phòng là ML và số phút là từ 1 đến 60, màn hình sẽ hiển thị “Tỷ lệ phòng của bạn là 90 nghìn“
 
-Nếu loại phòng là ML và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 100 độ"
+Nếu loại phòng là ML và số phút từ 60 đến 120, màn hình sẽ báo "Giá phòng của bạn là 100 nghìn"
 
-Nếu loại phòng là ML và số phút từ 120 đến 180, màn hình sẽ hiện “Giá phòng của bạn là 110 độ”
+Nếu loại phòng là ML và số phút từ 120 đến 180, màn hình sẽ hiện “Giá phòng của bạn là 110 nghìn”
 
-Nếu loại phòng là ML và số phút từ 180 đến 240, màn hình sẽ báo “Giá phòng của bạn là 120 độ”
+Nếu loại phòng là ML và số phút từ 180 đến 240, màn hình sẽ báo “Giá phòng của bạn là 120 nghìn”
 
-Nếu loại phòng là ML và số phút từ 240 đến 300, màn hình sẽ báo “Giá phòng của bạn là 140 độ”
+Nếu loại phòng là ML và số phút từ 240 đến 300, màn hình sẽ báo “Giá phòng của bạn là 140 nghìn”
 
-Nếu loại phòng là ML và số phút là từ 300 đến 360, màn hình sẽ hiển thị “Giá phòng của bạn là 160 độ”
+Nếu loại phòng là ML và số phút là từ 300 đến 360, màn hình sẽ hiển thị “Giá phòng của bạn là 160 nghìn”
 
 Sau khi thanh toán thành công, xoá phòng đó khỏi databse
 
