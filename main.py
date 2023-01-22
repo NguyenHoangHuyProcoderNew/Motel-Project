@@ -142,7 +142,8 @@ def main():
     conn.commit()
     conn.close()
     while True:
-        print("\nMenu Chương Trình Quản Lý Nhà Nghỉ - Người Viết Phần Mềm: Nguyễn Hoàng Huy")
+        print("\nChào Mừng Bạn Đến Với Chương Trình Quản Lý Nhà Nghỉ Được Tạo Bởi Nguyễn Hoàng Huy")
+        print("Dưới Đây Là Menu Của Chương Trình")
         print("1. Thêm phòng mới")
         print("2. Cập nhật thông tin phòng")
         print("3. Tính tiền phòng")
@@ -162,7 +163,7 @@ def main():
             see_availability()
         elif choice == "6":
             print("Đang thoát chương trình...")
-            print("Cảm ơn bạn đã sử dụng phần mềm! Hẹn gặp lại ^-^")
+            print("Cảm ơn bạn đã sử dụng chương trình của tôi! Hẹn gặp lại ^-^")
             break
         else:
             print("Lựa chọn của bạn không hợp lệ, vui lòng nhập lại!")
