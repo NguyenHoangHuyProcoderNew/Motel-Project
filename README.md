@@ -78,3 +78,4 @@ Sau khi thanh toán thành công, xoá phòng đó khỏi databse
 5. Xem phòng trống:
 Dựa vào cơ sở dữ liệu, nếu phòng không tồn tại trong cơ sở dữ liệu thì phòng sẽ hiển thị màn hình như ví dụ sau:
 “Các phòng còn trống là:…”
+
