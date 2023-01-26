@@ -10,7 +10,7 @@ if not c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='ro
 conn.commit()
 conn.close()
 
-# Hàm này để thêm phòng
+# Chức năng thêm phòng
 def add_room():
     room_number = input("Mời bạn chọn phòng: ")
     while room_number not in ["02", "03", "04", "07", "08", "09"]:
@@ -51,7 +51,7 @@ def is_valid_time(time):
     except ValueError:
         return False
 
-#Hàm cập nhật thông tin của phòng
+#Cập nhật thông tin cho phòng nếu dữ liệu đã nhập trước đó bị sai hoặc khách muốn đổi phòng,..v..v...
 def update_room_info():
     room_number = input("Bạn muốn cập nhật thông tin của phòng số mấy? Hãy cho tôi biết số phòng: ")
     conn = sqlite3.connect("hotel.db")
@@ -101,9 +101,10 @@ def update_room_info():
         conn.commit()
         print("Cập nhật thông tin thành công! Chúc bạn có một ngày làm việc vui vẻ ( ╹▽╹ )")
     else:
-        print("Không tồn tại phòng này hãy kiểm tra lại bạn nhé ( ╹▽╹ )")
+        print("Không tồn tại phòng này hãy kiểm tra lại bạn nhé ╯︵╰")
     conn.close()
 
+# Thanh toán
 def calculate_room_rate():
     room_number = input("Bạn muốn thanh toán phòng số mấy? Hãy cho tôi biết số phòng: ")
     check_out_time = input("Hãy nhập giờ hiện tại: ")
@@ -163,9 +164,9 @@ def calculate_room_rate():
         conn.commit()
         print("Thanh toán thành công! Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi. Xin cảm ơn ( ╹▽╹ )")
     else:
-        print("Phòng không tồn tại, vui lòng kiểm tra lại số phòng.")
+        print("Phòng này chưa tồn tại trên hệ thống. Vui lòng kiểm tra lại!")
 
-#Hàm xem tất cả các phòng trên hệ thống    
+#Hàm xem tất cả các phòng đang có khách
 def view_all_rooms():
     conn = sqlite3.connect("hotel.db")
     c = conn.cursor()
@@ -192,12 +193,13 @@ def see_availability():
         print("Hiện không có phòng nào trống")
     conn.close()    
 
+# Menu cho chương trình    
 def main():
     while True:
-        print("\nChào Mừng Bạn Đến Với Chương Trình Quản Lý Nhà Nghỉ Được Tạo Bởi Nguyễn Hoàng Huy")
+        print("\nChào mừng bạn đã đến với chương trình quản lý nhà nghỉ Huy Đức - Chương trình được tạo & vận hành bởi Nguyễn Hoàng Huy")
         print("Dưới Đây Là Menu Của Chương Trình")
-        print("1. Thêm phòng mới")
-        print("2. Cập nhật thông tin phòng")
+        print("1. Check-in phòng")
+        print("2. Cập nhật lại thông tin phòng")
         print("3. Thanh toán")
         print("4. Xem danh sách các phòng có khách")
         print("5. Xem danh sách các phòng trống")
