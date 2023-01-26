@@ -10,16 +10,71 @@ pip install sqlite3 prettytable
 pip install -r requirements.txt
 python -m pip install sqlite3 prettytable
 
-- Giới thiệu về các hàm có trong project:
+Dưới đây là cách tôi lên ý tưởng cũng như cách giải quyết cho các chức năng có trong chương trình
 
-Tập lệnh này là một chương trình đơn giản cho phép người dùng thêm và cập nhật thông tin về các phòng trong khách sạn.
+Viết menu:
+- Thêm phòng
+- Cập nhật thông tin phòng
+- Thanh toán
+- Xem tất cả các phòng
+- Xem phòng trống
+- Thoát khỏi chương trình
+Sau đây là cách giải các hàm trên
+1. Thêm phòng:
+- Yêu cầu người dùng nhập các thông tin sau: 
++ Số phòng (chỉ nhập được các phòng: 02,03,04,07,08,09 nếu người dùng nhập dữ liệu khác thì báo lỗi và yêu cầu nhập lại)
++ Thời gian nhận phòng (định dạng nhập là: HH:mm, ví dụ: 01:00, nếu người dùng nhập sai định dạng giờ, yêu cầu người dùng nhập lại)
++ Loại phòng (chỉ nhập ML hoặc Q, nếu người dùng nhập dữ liệu khác thì báo lỗi và yêu cầu nhập lại)
++ Thêm nước uống ( hỏi người dùng là có muốn sử dùng nước không? nếu có thì nhập Y còn nếu không thì nhập N)
+Nếu người dùng có sử dụng nước thì yêu cầu nhập thêm các thông tin như sau:
++ Loại nước ( chỉ được nhập NN hoặc NS nếu người dùng nhập dữ liệu khác thì báo lỗi và yêu cầu nhập lại)
++ Số lượng ( biết rằng 1 NN có giá là 15, 1 NS có giá là 5 )
+Các thông tin trên cần được lưu trữ trong cơ sở dữ liệu (viết lệnh tạo đường dẫn đến cơ sở dữ liệu).
 
-Hàm add_room() nhắc người dùng nhập số phòng, thời gian nhận phòng và loại phòng. Số phòng phải là một trong số "02", "03", "04", "07", "08" hoặc "09". Thời gian nhận phòng phải ở định dạng "giờ:phút" (ví dụ: "01:00"). Loại phòng phải là "ML" hoặc "Q" (tương ứng với "điều hòa" và "quạt"). Nếu thông tin đầu vào hợp lệ, thì chức năng này sẽ thêm thông tin phòng vào cơ sở dữ liệu SQLite có tên "hotel_db.sql".
+2. Cập nhật thông tin phòng:
+- Yêu cầu user nhập vào: 
++ số phòng
+Sau đó dựa trên dữ liệu đã nhập ở chức năng thêm phòng, cho phép người dùng cập nhật tất cả thông tin của phòng đó
 
-Hàm update_room_info() cho phép người dùng cập nhật thời gian nhận phòng và loại phòng của một phòng. Người dùng được nhắc nhập số phòng và sau đó chức năng sẽ truy vấn cơ sở dữ liệu để biết thông tin hiện tại của phòng. Sau đó, người dùng có thể nhập các giá trị mới cho thời gian nhận phòng và loại phòng và chức năng này sẽ cập nhật cơ sở dữ liệu với thông tin mới.
+3. Thanh toán: 
++ yêu cầu người dùng nhập số phòng (thông tin dựa trên cơ sở dữ liệu)
++ giờ trả phòng
 
-Hàm view_all_rooms() hiển thị tất cả các phòng trong cơ sở dữ liệu ở định dạng bảng bằng thư viện prettytable.
+Sau khi người dùng nhập, tính toán số tiền bằng thuật toán sau:
 
-Hàm is_valid_time() là một hàm trợ giúp kiểm tra xem chuỗi đầu vào có phải là thời gian hợp lệ ở định dạng "giờ:phút" hay không.
+Đầu tiên lấy giờ trả phòng - Thời gian nhận phòng sau đó quy đổi ra phút rồi tính như sau:
 
-Mã này sử dụng thư viện python sqlite3 để tương tác với cơ sở dữ liệu SQLite và thư viện python prettytable để tạo bảng.
+Nếu loại phòng là Q và số phút là từ 1 đến 60, thì giá sẽ là 70
+
+Nếu loại phòng là Q và số phút từ 60 đến 120, thì giá sẽ là 80
+
+Nếu loại phòng là Q và số phút từ 120 đến 180 thì giá sẽ là 90
+
+Nếu loại phòng là Q và số phút từ 180 đến 240 thì giá sẽ là 110
+
+Nếu loại phòng là Q và số phút từ 240 đến 300 thì giá sẽ là 120
+
+Nếu loại phòng là Q và số phút là từ 300 đến 360 thì giá sẽ là 140
+
+Nếu loại phòng là ML và số phút là từ 1 đến 60 thì giá sẽ là 90
+
+Nếu loại phòng là ML và số phút từ 60 đến 120 thì giá sẽ là 100
+
+Nếu loại phòng là ML và số phút từ 120 đến 180thì giá sẽ là 110
+
+Nếu loại phòng là ML và số phút từ 180 đến 240 thì giá sẽ là 120
+
+Nếu loại phòng là ML và số phút từ 240 đến 300 thì giá sẽ là 140
+
+Nếu loại phòng là ML và số phút là từ 300 đến 360 thì giá sẽ là 160
+
+Sau đó cộng giá phòng và nước lại với nhau rồi in tổng tiền ra màn hình
+
+Sau khi thanh toán thành công, xoá phòng đó khỏi databse
+
+4. Xem tất cả các phòng đã thêm:
+Để người dùng xem được toàn bộ thông tin của các phòng đã được thêm vào dựa trên cơ sở dữ liệu, hãy trình bày dưới dạng bảng
+
+5. Xem phòng trống:
+Dựa vào cơ sở dữ liệu, nếu phòng không tồn tại trong cơ sở dữ liệu thì phòng sẽ hiển thị màn hình như ví dụ sau:
+“Các phòng còn trống là:…”
